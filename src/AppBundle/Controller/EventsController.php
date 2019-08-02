@@ -1,8 +1,9 @@
 <?php
-
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Events;
+// use Symfony\Component\EventDispatcher\Event;
+// use Symfony\Component\Workflow\Event\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -10,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Event controller.
  *
- * @Route("events")
+ * @Route("/")
  */
 class EventsController extends Controller
 {
