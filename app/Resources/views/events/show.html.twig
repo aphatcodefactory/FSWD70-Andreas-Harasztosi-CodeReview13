@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1 class="text-danger">Event</h1>
 
-    <table>
+    <table class="table table-dark">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ event.id }}</td>
+                <td># {{ event.id }}</td>
             </tr>
             <tr>
                 <th>Name</th>
@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ event.image }}</td>
+                <td><img src="{{ event.image }}"></td>
             </tr>
             <tr>
                 <th>Capacity</th>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <th>Url</th>
-                <td>{{ event.url }}</td>
+                <td><a href="{{ event.url }}" target="_blank" class="btn btn-warning">Link to Event</a></td>
             </tr>
             <tr>
                 <th>Type</th>
@@ -54,14 +54,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('events_index') }}">Back to the list</a>
+            <a href="{{ path('events_index') }}" class="btn btn-success">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('events_edit', { 'id': event.id }) }}">Edit</a>
+            <a href="{{ path('events_edit', { 'id': event.id }) }}" class="btn btn-warning">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

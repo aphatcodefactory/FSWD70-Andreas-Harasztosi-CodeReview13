@@ -1,46 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Events list</h1>
+    <h1 class="text-danger">Events list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-dark">
+        <thead class="">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Begin</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>Capacity</th>
-                <th>Email</th>
-                <th>Tel</th>
-                <th>Address</th>
-                <th>Url</th>
-                <th>Type</th>
-                <th>Actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Begin</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Address</th>
+                <th scope="col">Type</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for event in events %}
             <tr>
-                <td><a href="{{ path('events_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
+                <th scope="col"><a class="btn btn-danger" href="{{ path('events_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
                 <td>{{ event.name }}</td>
                 <td>{% if event.begin %}{{ event.begin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.image }}</td>
-                <td>{{ event.capacity }}</td>
                 <td>{{ event.email }}</td>
                 <td>{{ event.tel }}</td>
                 <td>{{ event.address }}</td>
-                <td>{{ event.url }}</td>
                 <td>{{ event.type }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('events_show', { 'id': event.id }) }}">show</a>
+                            <a class="btn btn-warning" href="{{ path('events_show', { 'id': event.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('events_edit', { 'id': event.id }) }}">edit</a>
+                            <a class="btn btn-success" href="{{ path('events_edit', { 'id': event.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -51,7 +43,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('events_new') }}">Create a new event</a>
+            <a class="btn btn-info" href="{{ path('events_new') }}">Create a new event</a>
         </li>
     </ul>
 {% endblock %}
