@@ -2,11 +2,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Events;
-// use Symfony\Component\EventDispatcher\Event;
-// use Symfony\Component\Workflow\Event\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Event controller.
@@ -40,7 +39,7 @@ class EventsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $event = new Event();
+        $event = new Events();
         $form = $this->createForm('AppBundle\Form\EventsType', $event);
         $form->handleRequest($request);
 
@@ -102,7 +101,7 @@ class EventsController extends Controller
     /**
      * Deletes a event entity.
      *
-     * @Route("/{id}", name="events_delete")
+     * @Route("/{id}/delete", name="events_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Events $event)
